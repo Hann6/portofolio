@@ -47,6 +47,32 @@
     navLinks.forEach((link) => link.classList.remove('is-active'));
   };
 
+  const updateActiveFromScroll = () => {
+    const sections = navLinks
+      .map((link) => {
+        const href = link.getAttribute('href');
+        if (!href || !href.startsWith('#')) return null;
+        const section = document.querySelector(href);
+        if (!section) return null;
+        return { link, section };
+      })
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    const triggerY = window.scrollY + 140;
+    let current = sections[0].link;
+
+    sections.forEach(({ link, section }) => {
+      if (section.offsetTop <= triggerY) {
+        current = link;
+      }
+    });
+
+    clearActive();
+    current.classList.add('is-active');
+  };
+
   navLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       const href = link.getAttribute('href');
@@ -59,6 +85,10 @@
       link.classList.add('is-active');
     });
   });
+
+  window.addEventListener('scroll', updateActiveFromScroll, { passive: true });
+  window.addEventListener('resize', updateActiveFromScroll);
+  updateActiveFromScroll();
 
   if (canvas && ctx) {
     const resize = () => {
