@@ -7,11 +7,11 @@
   const mouse = { x: 0, y: 0, active: false };
   const dots = [];
   const blobs = [
-    { x: 0.15, y: 0.2, r: 260, hue: 24, speed: 0.0007 },
-    { x: 0.45, y: 0.3, r: 220, hue: 18, speed: 0.001 },
-    { x: 0.75, y: 0.25, r: 240, hue: 30, speed: 0.0009 },
-    { x: 0.2, y: 0.7, r: 280, hue: 22, speed: 0.0008 },
-    { x: 0.6, y: 0.7, r: 260, hue: 28, speed: 0.0011 },
+    { x: 0.12, y: 0.2, r: 280, hue: 285, speed: 0.0007 },
+    { x: 0.42, y: 0.28, r: 240, hue: 300, speed: 0.001 },
+    { x: 0.78, y: 0.25, r: 260, hue: 315, speed: 0.0009 },
+    { x: 0.18, y: 0.7, r: 300, hue: 275, speed: 0.0008 },
+    { x: 0.62, y: 0.7, r: 280, hue: 195, speed: 0.0011 },
   ];
 
   const onIntersect = (entries, observer) => {
@@ -97,7 +97,7 @@
         const centerY = driftY * window.innerHeight + offsetY;
         const radius = blob.r + drift * 40;
         const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
-        gradient.addColorStop(0, `hsla(${blob.hue}, 58%, 62%, 0.32)`);
+        gradient.addColorStop(0, `hsla(${blob.hue}, 70%, 60%, 0.38)`);
         gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -105,7 +105,7 @@
         ctx.fill();
       });
 
-      ctx.fillStyle = 'rgba(201, 143, 95, 0.5)';
+      ctx.fillStyle = 'rgba(176, 75, 255, 0.55)';
       dots.forEach((dot) => {
         dot.x += dot.vx;
         dot.y += dot.vy;
@@ -130,8 +130,8 @@
         ctx.globalAlpha = 0.15;
         const radius = 120;
         const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, radius);
-        gradient.addColorStop(0, 'rgba(201, 143, 95, 0.25)');
-        gradient.addColorStop(1, 'rgba(201, 143, 95, 0)');
+        gradient.addColorStop(0, 'rgba(176, 75, 255, 0.35)');
+        gradient.addColorStop(1, 'rgba(176, 75, 255, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2);
