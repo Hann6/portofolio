@@ -7,6 +7,3 @@ Simple personal portfolio site for Hans Thatian (Backend Engineer).
 - `styles.css` - Styles
 - `script.js` - Scroll reveal and nav animation
 - `CV Hans Thatian.pdf` - Resume download
-
-## Run locally
-Open `index.html` in a browser.
