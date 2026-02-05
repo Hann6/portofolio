@@ -26,6 +26,7 @@ canvas#bg-canvas {
   height: 100%;
   z-index: -1;
   pointer-events: none;
+  filter: blur(0.2px);
 }
 
 body {

@@ -6,6 +6,13 @@
   const ctx = canvas ? canvas.getContext('2d') : null;
   const mouse = { x: 0, y: 0, active: false };
   const dots = [];
+  const blobs = [
+    { x: 0.15, y: 0.2, r: 260, hue: 24, speed: 0.0007 },
+    { x: 0.45, y: 0.3, r: 220, hue: 18, speed: 0.001 },
+    { x: 0.75, y: 0.25, r: 240, hue: 30, speed: 0.0009 },
+    { x: 0.2, y: 0.7, r: 280, hue: 22, speed: 0.0008 },
+    { x: 0.6, y: 0.7, r: 260, hue: 28, speed: 0.0011 },
+  ];
 
   const onIntersect = (entries, observer) => {
     entries.forEach((entry) => {
@@ -76,8 +83,28 @@
       }
     };
 
-    const tick = () => {
+    const tick = (time = 0) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Soft gradient blobs
+      blobs.forEach((blob, index) => {
+        const drift = Math.sin(time * blob.speed + index) * 0.5 + 0.5;
+        const driftX = (Math.cos(time * blob.speed * 1.4 + index) * 0.06) + blob.x;
+        const driftY = (Math.sin(time * blob.speed * 1.1 + index) * 0.06) + blob.y;
+        const offsetX = mouse.active ? (mouse.x / window.innerWidth - 0.5) * 60 : 0;
+        const offsetY = mouse.active ? (mouse.y / window.innerHeight - 0.5) * 60 : 0;
+        const centerX = driftX * window.innerWidth + offsetX;
+        const centerY = driftY * window.innerHeight + offsetY;
+        const radius = blob.r + drift * 40;
+        const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+        gradient.addColorStop(0, `hsla(${blob.hue}, 58%, 62%, 0.32)`);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
       ctx.fillStyle = 'rgba(201, 143, 95, 0.5)';
       dots.forEach((dot) => {
         dot.x += dot.vx;
