@@ -19,6 +19,15 @@ body.preload * {
   transition: none !important;
 }
 
+canvas#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
 body {
   font-family: "Source Sans 3", "Segoe UI", sans-serif;
   background: var(--bg);
