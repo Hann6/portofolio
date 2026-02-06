@@ -7,6 +7,7 @@
   const timeValue = document.getElementById('jakarta-time');
   const timeDate = document.getElementById('jakarta-date');
   const toast = document.getElementById('toast');
+  const contactForm = document.getElementById('contact-form');
   const mouse = { x: 0, y: 0, active: false };
   const dots = [];
   const blobs = [
@@ -83,6 +84,41 @@
     const query = params.toString();
     const nextUrl = `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`;
     window.history.replaceState({}, '', nextUrl);
+  }
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+      }
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: {
+            Accept: 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          showToast('Your message has been sent.');
+        } else {
+          showToast('Something went wrong. Please email me directly.');
+        }
+      } catch (error) {
+        showToast('Network error. Please try again.');
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
+        }
+      }
+    });
   }
 
   const clearActive = () => {
