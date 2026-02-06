@@ -4,6 +4,9 @@
   const navLinks = Array.from(document.querySelectorAll('.nav a'));
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas ? canvas.getContext('2d') : null;
+  const timeValue = document.getElementById('jakarta-time');
+  const timeDate = document.getElementById('jakarta-date');
+  const toast = document.getElementById('toast');
   const mouse = { x: 0, y: 0, active: false };
   const dots = [];
   const blobs = [
@@ -42,6 +45,45 @@
       });
     });
   });
+
+  const updateJakartaTime = () => {
+    if (!timeValue || !timeDate) return;
+    const now = new Date();
+    const timeFormatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Jakarta',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+    const dateFormatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Jakarta',
+      weekday: 'short',
+      day: '2-digit',
+      month: 'short',
+    });
+    timeValue.textContent = timeFormatter.format(now);
+    timeDate.textContent = dateFormatter.format(now);
+  };
+
+  updateJakartaTime();
+  setInterval(updateJakartaTime, 1000);
+
+  const showToast = (message) => {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    window.setTimeout(() => {
+      toast.classList.remove('is-visible');
+    }, 4000);
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') === '1') {
+    showToast('Your message has been sent.');
+    params.delete('sent');
+    const query = params.toString();
+    const nextUrl = `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`;
+    window.history.replaceState({}, '', nextUrl);
+  }
 
   const clearActive = () => {
     navLinks.forEach((link) => link.classList.remove('is-active'));
