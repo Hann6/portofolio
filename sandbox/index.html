@@ -1,196 +1,487 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hans Thatian | Backend Engineer</title>
+    <meta name="theme-color" content="#05060c" />
+    <title>HANS_THATIAN.exe // NETRUNNER</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;900&family=JetBrains+Mono:wght@400;500;600;700&family=VT323&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="preload">
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <div class="kata-deco kata-deco--left" aria-hidden="true">
+      <span>サ</span><span>イ</span><span>バ</span><span>ー</span><span>パ</span><span>ン</span><span>ク</span>
+    </div>
+    <div class="kata-deco kata-deco--right" aria-hidden="true">
+      <span>ネ</span><span>ッ</span><span>ト</span><span>ラ</span><span>ン</span><span>ナ</span><span>ー</span>
+    </div>
+
+    <div class="boot-bar" aria-hidden="true">
+      <div class="boot-strip">
+        <span class="boot-pulse"></span>
+        <span>NEURAL_LINK&nbsp;:&nbsp;<b class="green">ESTABLISHED</b></span>
+        <span>NODE&nbsp;:&nbsp;<b>HT.04</b></span>
+        <span>LOC&nbsp;:&nbsp;<b>-6.2°S/106.8°E</b></span>
+        <span>UPTIME&nbsp;:&nbsp;<b id="uptime">00:00:00</b></span>
+        <span>JKT&nbsp;:&nbsp;<b id="jakarta-time">--:--:--</b></span>
+        <span class="green">▮ SYS_ONLINE</span>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="container header-inner">
-        <div class="brand">
-          <div class="brand-mark">HT</div>
-          <div>
-            <div class="brand-name">Hans Thatian</div>
-            <div class="brand-role">Backend Engineer</div>
+        <a class="brand" href="#top" aria-label="HOME">
+          <div class="brand-mark">
+            <span class="brand-mark-text">HT</span>
+            <span class="brand-mark-corner brand-mark-corner--tl"></span>
+            <span class="brand-mark-corner brand-mark-corner--br"></span>
           </div>
-        </div>
-        <nav class="nav">
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#education">Education</a>
+          <div class="brand-text">
+            <div class="brand-name" data-text="HANS_THATIAN">HANS_THATIAN</div>
+            <div class="brand-role">// BACKEND.NETRUNNER&nbsp;<span class="cursor"></span></div>
+          </div>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#mission"><span class="nav-bracket">[</span>01<span class="nav-bracket">]</span> MISSIONS</a>
+          <a href="#deploy"><span class="nav-bracket">[</span>02<span class="nav-bracket">]</span> DEPLOYS</a>
+          <a href="#arsenal"><span class="nav-bracket">[</span>03<span class="nav-bracket">]</span> ARSENAL</a>
+          <a href="#memory"><span class="nav-bracket">[</span>04<span class="nav-bracket">]</span> MEMORY</a>
+          <a href="#uplink"><span class="nav-bracket">[</span>05<span class="nav-bracket">]</span> UPLINK</a>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero">
         <div class="container hero-grid">
-          <div class="reveal">
-            <p class="eyebrow">Based in Jakarta, Indonesia</p>
-            <h1>Building reliable backend systems with pragmatic engineering.</h1>
-            <p class="lead">
-              Backend Engineer with experience in government and banking environments. I focus on
-              scalable services, clean API design, and robust fixes that keep systems stable.
+          <div class="hero-text reveal">
+            <p class="eyebrow">
+              <span class="eyebrow-bracket">[</span>
+              <span class="eyebrow-pulse"></span>
+              SECTOR&nbsp;: JAKARTA / ID
+              <span class="eyebrow-bracket">]</span>
             </p>
+            <h1 class="glitch" data-text="Building reliable backend systems with pragmatic engineering.">
+              Building reliable backend<br/>
+              systems with <span class="neon-pink">pragmatic</span> <span class="neon-cyan">engineering</span>.
+            </h1>
+            <p class="lead">
+              <span class="prompt">&gt;</span>
+              Backend engineer running on Java, Spring Boot, and PostgreSQL.
+              Two years deep into government &amp; banking ops — closed&nbsp;
+              <span class="neon-pink">1,200+&nbsp;tickets</span>, hardened production paths,
+              and quietly killed the bugs that kept coming back.
+              <span class="cursor"></span>
+            </p>
+
             <div class="cta-row">
-              <a class="button" href="mailto:hansiskandar123@gmail.com">Email Me</a>
-              <a class="button ghost" href="https://id.linkedin.com/in/hans-thatian-404bb822b" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="button ghost" href="https://github.com/Hann6" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="button ghost" href="CV Hans Thatian.pdf" download>Download CV</a>
+              <a class="button primary" href="#uplink">
+                <span class="button-bracket">&gt;</span>
+                INITIATE_UPLINK
+                <span class="button-arrow">_</span>
+              </a>
+              <a class="button ghost" href="CV Hans Thatian.pdf" download>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                DOWNLOAD.cv
+              </a>
+              <a class="button ghost" href="https://github.com/Hann6" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.36-1.18-3.36-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.9-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.69.92.69 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+                GITHUB.repo
+              </a>
+              <a class="button ghost" href="https://id.linkedin.com/in/hans-thatian-404bb822b" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M20.45 20.45h-3.55v-5.32c0-1.27-.02-2.9-1.77-2.9-1.78 0-2.05 1.38-2.05 2.8v5.42H9.53V9h3.4v1.56h.05c.47-.9 1.62-1.85 3.34-1.85 3.57 0 4.22 2.35 4.22 5.41v6.33zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22 3H2c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h20c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1z"/></svg>
+                LINKEDIN.net
+              </a>
             </div>
-            <div class="contact-row">
-              <span>+62 877 773 005 81</span>
-              <span>Jakarta, ID</span>
-            </div>
-          </div>
-          <div class="hero-card reveal">
-            <div class="hero-card-inner">
-              <h2>Highlights</h2>
-              <ul class="highlight-list">
-                <li>Led a regional selection service for a national legal administration system.</li>
-                <li>Delivered a full-stack Yii app with voucher validation for sensitive requests.</li>
-                <li>Built security testing strategies for JSP applications.</li>
-              </ul>
-              <div class="availability">
-                <span class="dot"></span>
-                Open to backend roles
+
+            <div class="hex-stats" role="list">
+              <div class="hex-stat" role="listitem">
+                <div class="hex-stat-frame">
+                  <span class="hex-stat-value" data-counter data-target="1200" data-suffix="+">0</span>
+                  <span class="hex-stat-corner hex-stat-corner--tl"></span>
+                  <span class="hex-stat-corner hex-stat-corner--tr"></span>
+                  <span class="hex-stat-corner hex-stat-corner--bl"></span>
+                  <span class="hex-stat-corner hex-stat-corner--br"></span>
+                </div>
+                <span class="hex-stat-label">TICKETS_CLOSED</span>
+              </div>
+              <div class="hex-stat" role="listitem">
+                <div class="hex-stat-frame">
+                  <span class="hex-stat-value" data-counter data-target="2" data-suffix="Y">0</span>
+                  <span class="hex-stat-corner hex-stat-corner--tl"></span>
+                  <span class="hex-stat-corner hex-stat-corner--tr"></span>
+                  <span class="hex-stat-corner hex-stat-corner--bl"></span>
+                  <span class="hex-stat-corner hex-stat-corner--br"></span>
+                </div>
+                <span class="hex-stat-label">FIELD_TIME</span>
+              </div>
+              <div class="hex-stat" role="listitem">
+                <div class="hex-stat-frame">
+                  <span class="hex-stat-value" data-counter data-target="10" data-suffix="+">0</span>
+                  <span class="hex-stat-corner hex-stat-corner--tl"></span>
+                  <span class="hex-stat-corner hex-stat-corner--tr"></span>
+                  <span class="hex-stat-corner hex-stat-corner--bl"></span>
+                  <span class="hex-stat-corner hex-stat-corner--br"></span>
+                </div>
+                <span class="hex-stat-label">STACK_NODES</span>
+              </div>
+              <div class="hex-stat" role="listitem">
+                <div class="hex-stat-frame">
+                  <span class="hex-stat-value" data-counter data-target="3" data-suffix="">0</span>
+                  <span class="hex-stat-corner hex-stat-corner--tl"></span>
+                  <span class="hex-stat-corner hex-stat-corner--tr"></span>
+                  <span class="hex-stat-corner hex-stat-corner--bl"></span>
+                  <span class="hex-stat-corner hex-stat-corner--br"></span>
+                </div>
+                <span class="hex-stat-label">LANG_PROTOS</span>
               </div>
             </div>
           </div>
+
+          <aside class="hero-console reveal" aria-label="Status console">
+            <div class="console-frame">
+              <div class="console-bar">
+                <span class="console-dot"></span>
+                <span class="console-dot console-dot--mid"></span>
+                <span class="console-dot console-dot--end"></span>
+                <span class="console-title">~/htOS // status.sh</span>
+                <span class="console-bar-corner"></span>
+              </div>
+              <div class="console-body">
+                <div class="console-line"><span class="muted">$&nbsp;</span><span class="green">whoami</span></div>
+                <div class="console-line">hans_thatian — backend.netrunner</div>
+                <div class="console-line"><span class="muted">$&nbsp;</span><span class="green">cat ./current.log</span></div>
+                <div class="console-line console-pre">
+[<span class="cyan">INFO</span>] Closed <span class="pink">1,200+</span> tickets to date
+[<span class="cyan">INFO</span>] Maintaining prod services
+[<span class="cyan">INFO</span>] Killing recurring bugs at the root
+[<span class="green">OK</span>] Open to FULL_STACK / BACKEND / WEB.SVC
+                </div>
+                <div class="console-line"><span class="muted">$&nbsp;</span><span class="cursor cursor--solid"></span></div>
+              </div>
+            </div>
+            <div class="console-tags">
+              <span class="chip">JAVA</span>
+              <span class="chip">SPRING_BOOT</span>
+              <span class="chip">POSTGRES</span>
+              <span class="chip">HAZELCAST</span>
+              <span class="chip">YII</span>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section id="experience" class="section reveal">
+      <section id="mission" class="section reveal">
         <div class="container">
           <div class="section-title">
-            <h2>Work Experience</h2>
-            <p>Recent roles focused on backend services and security.</p>
+            <span class="section-tag">// 01</span>
+            <h2 data-text="MISSION_LOG">MISSION_LOG<span class="dot-blink">.</span>exe</h2>
+            <p>Recent ops. Backend services and security work.</p>
           </div>
           <div class="cards">
-            <article class="card">
+            <article class="card mission-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--tr"></span>
+              <span class="card-corner card-corner--bl"></span>
+              <span class="card-corner card-corner--br"></span>
               <div class="card-header">
                 <div>
-                  <h3>Lacak.io</h3>
-                  <p class="role">Backend Engineer</p>
+                  <span class="meta meta-pill"><span class="meta-pulse"></span>ACTIVE</span>
+                  <h3>LACAK.io</h3>
+                  <p class="role">// BACKEND.ENGINEER</p>
                 </div>
-                <span class="meta">May 2025 - Present</span>
+                <span class="meta meta-time">[ MAY.2025 — PRESENT ]</span>
               </div>
               <ul>
-                <li>Led development of the Koperasi Wilayah Selection Service using PostgreSQL, Java Spring Boot, and Hazelcast Cache.</li>
-                <li>Deployed a full-stack Yii application to handle requests for lost or corrupted testaments with voucher validation.</li>
-                <li>Resolved recurring issues with durable fixes to improve system stability and efficiency.</li>
+                <li>Led the <span class="hl">Koperasi Wilayah</span> selection service — PostgreSQL · Spring Boot · Hazelcast.</li>
+                <li>Shipped a full-stack <span class="hl">Yii</span> app for lost / corrupted testaments with voucher gating.</li>
+                <li>Closed <span class="hl">1,200+</span> tickets — durable fixes, recurring-bug exterminations, calmer prod.</li>
               </ul>
+              <div class="card-tags">
+                <span class="chip">JAVA</span>
+                <span class="chip">SPRING_BOOT</span>
+                <span class="chip">POSTGRES</span>
+                <span class="chip">HAZELCAST</span>
+                <span class="chip">YII</span>
+              </div>
             </article>
-            <article class="card">
+
+            <article class="card mission-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--tr"></span>
+              <span class="card-corner card-corner--bl"></span>
+              <span class="card-corner card-corner--br"></span>
               <div class="card-header">
                 <div>
-                  <h3>Bank Central Asia (BCA)</h3>
-                  <p class="role">Application Developer Intern</p>
+                  <span class="meta meta-pill meta-pill--archived">ARCHIVED</span>
+                  <h3>BCA // BANK_CENTRAL_ASIA</h3>
+                  <p class="role">// APP.DEV INTERN</p>
                 </div>
-                <span class="meta">Sep 2024 - May 2025</span>
+                <span class="meta meta-time">[ SEP.2024 — MAY.2025 ]</span>
               </div>
               <ul>
-                <li>Assisted penetration testing development using Java, focusing on vulnerability detection.</li>
-                <li>Contributed to security testing strategies within a JSP framework.</li>
+                <li>Built Java <span class="hl">pen-test tooling</span> for vulnerability detection on the JSP stack.</li>
+                <li>Contributed to the security testing playbook for legacy JSP services.</li>
+                <li>Implemented features &amp; maintained <span class="hl">KLIKBCA Bisnis</span> in production.</li>
               </ul>
+              <div class="card-tags">
+                <span class="chip">JAVA</span>
+                <span class="chip">JSP</span>
+                <span class="chip">SECURITY</span>
+                <span class="chip">PEN_TEST</span>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="skills" class="section alt reveal">
+      <section id="deploy" class="section reveal">
         <div class="container">
           <div class="section-title">
-            <h2>Skills</h2>
-            <p>Core technologies and strengths.</p>
+            <span class="section-tag">// 02</span>
+            <h2 data-text="DEPLOYMENTS">DEPLOYMENTS<span class="dot-blink">.</span>log</h2>
+            <p>Things that shipped and stayed up.</p>
           </div>
-          <div class="skills-grid">
-            <div class="card">
-              <h3>Backend</h3>
-              <ul class="skill-list">
-                <li>Java</li>
-                <li>Python</li>
-                <li>PHP</li>
-                <li>REST APIs</li>
-                <li>Authentication</li>
-                <li>PostgreSQL</li>
-                <li>MySQL</li>
-                <li>Hazelcast</li>
+          <div class="deploy-grid">
+            <article class="deploy-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="deploy-glyph">
+                <svg viewBox="0 0 32 32"><path d="M4 22h24M8 22V10l8-5 8 5v12M14 22v-6h4v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>KOPERASI_WILAYAH.svc</h3>
+              <p class="role">LACAK.io · NATIONAL_LEGAL_NET</p>
+              <p>Regional selection service backing a national legal admin grid. Engineered for spike-resilience with cached lookups + clean API contracts.</p>
+              <div class="card-tags">
+                <span class="chip">SPRING_BOOT</span>
+                <span class="chip">POSTGRES</span>
+                <span class="chip">HAZELCAST</span>
+              </div>
+            </article>
+
+            <article class="deploy-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="deploy-glyph">
+                <svg viewBox="0 0 32 32"><path d="M7 5h13l5 5v17H7zM20 5v5h5M11 14h10M11 18h10M11 22h7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>TESTAMENT_RECOVERY.app</h3>
+              <p class="role">LACAK.io · CITIZEN.WORKFLOW</p>
+              <p>Full-stack Yii app processing damaged or missing legal testament requests, with voucher validation guarding the sensitive paths.</p>
+              <div class="card-tags">
+                <span class="chip">YII</span>
+                <span class="chip">PHP</span>
+                <span class="chip">MYSQL</span>
+              </div>
+            </article>
+
+            <article class="deploy-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="deploy-glyph">
+                <svg viewBox="0 0 32 32"><path d="M16 4l10 4v8c0 6-4 10-10 12-6-2-10-6-10-12V8zM12 16l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>PENTEST_DECK.jar</h3>
+              <p class="role">BCA · KLIKBCA_BISNIS</p>
+              <p>Java tooling for vulnerability detection across a JSP-based banking platform, plus feature work and maintenance for KLIKBCA Bisnis.</p>
+              <div class="card-tags">
+                <span class="chip">JAVA</span>
+                <span class="chip">JSP</span>
+                <span class="chip">SECURITY</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="arsenal" class="section reveal">
+        <div class="container">
+          <div class="section-title">
+            <span class="section-tag">// 03</span>
+            <h2 data-text="ARSENAL">ARSENAL<span class="dot-blink">.</span>inv</h2>
+            <p>Equipped weapons. Stack inventory.</p>
+          </div>
+          <div class="arsenal-grid">
+            <div class="arsenal-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="arsenal-head">
+                <span class="arsenal-icon">▮</span>
+                <h3>BACKEND.core</h3>
+              </div>
+              <ul class="chip-list">
+                <li>JAVA</li><li>PYTHON</li><li>PHP</li><li>REST_API</li>
+                <li>AUTH</li><li>POSTGRES</li><li>MYSQL</li><li>HAZELCAST</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Frameworks</h3>
-              <ul class="skill-list">
-                <li>Spring Boot</li>
-                <li>JSP</li>
-                <li>Yii</li>
-                <li>Laravel</li>
+            <div class="arsenal-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="arsenal-head">
+                <span class="arsenal-icon">◆</span>
+                <h3>FRAMEWORKS.lib</h3>
+              </div>
+              <ul class="chip-list">
+                <li>SPRING_BOOT</li><li>JSP</li><li>YII</li><li>LARAVEL</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Frontend</h3>
-              <ul class="skill-list">
-                <li>JavaScript (JS)</li>
-                <li>React.js</li>
-                <li>HTML</li>
-                <li>CSS</li>
+            <div class="arsenal-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="arsenal-head">
+                <span class="arsenal-icon">▶</span>
+                <h3>FRONTEND.ui</h3>
+              </div>
+              <ul class="chip-list">
+                <li>JAVASCRIPT</li><li>REACT.js</li><li>HTML</li><li>CSS</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Tools</h3>
-              <ul class="skill-list">
-                <li>Git & GitHub</li>
-                <li>Postman</li>
+            <div class="arsenal-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="arsenal-head">
+                <span class="arsenal-icon">◇</span>
+                <h3>TOOLS.kit</h3>
+              </div>
+              <ul class="chip-list">
+                <li>GIT</li><li>GITHUB</li><li>POSTMAN</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Languages</h3>
-              <ul class="skill-list">
-                <li>Bahasa Indonesia (Native)</li>
-                <li>English</li>
-                <li>Mandarin (Beginner)</li>
+            <div class="arsenal-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="arsenal-head">
+                <span class="arsenal-icon">▲</span>
+                <h3>LANG.protocols</h3>
+              </div>
+              <ul class="chip-list">
+                <li>BAHASA_ID <span class="bar bar-3"></span></li>
+                <li>ENGLISH <span class="bar bar-3"></span></li>
+                <li>MANDARIN <span class="bar bar-1"></span></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="education" class="section alt reveal">
+      <section id="memory" class="section reveal">
         <div class="container">
           <div class="section-title">
-            <h2>Education & Certification</h2>
-            <p>Academic background and verified language proficiency.</p>
+            <span class="section-tag">// 04</span>
+            <h2 data-text="MEMORY_BANKS">MEMORY_BANKS<span class="dot-blink">.</span>dat</h2>
+            <p>Education &amp; certifications archived in cold storage.</p>
           </div>
-          <div class="cards">
-            <article class="card">
+          <div class="cards two-col">
+            <article class="card mission-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--tr"></span>
+              <span class="card-corner card-corner--bl"></span>
+              <span class="card-corner card-corner--br"></span>
               <div class="card-header">
                 <div>
-                  <h3>BINUS University</h3>
-                  <p class="role">B.S. in Computer Science</p>
+                  <h3>BINUS_UNIVERSITY</h3>
+                  <p class="role">// B.S. COMPUTER_SCIENCE</p>
                 </div>
-                <span class="meta">Sep 2021 - Mar 2025</span>
+                <span class="meta meta-time">[ SEP.2021 — MAR.2025 ]</span>
               </div>
-              <p>GPA: 3.53 / 4.00</p>
+              <p class="muted">GPA :: <span class="hl">3.53 / 4.00</span></p>
             </article>
-            <article class="card">
+            <article class="card mission-card">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--tr"></span>
+              <span class="card-corner card-corner--bl"></span>
+              <span class="card-corner card-corner--br"></span>
               <div class="card-header">
                 <div>
-                  <h3>IELTS Academic</h3>
-                  <p class="role">Score 7.5</p>
+                  <h3>IELTS_ACADEMIC</h3>
+                  <p class="role">// SCORE 7.5</p>
                 </div>
-                <span class="meta">2023</span>
+                <span class="meta meta-time">[ 2023 ]</span>
               </div>
-              <p>IELTS Official</p>
+              <p class="muted">CERT :: IELTS Official</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="uplink" class="section reveal">
+        <div class="container">
+          <div class="section-title">
+            <span class="section-tag">// 05</span>
+            <h2 data-text="UPLINK">UPLINK<span class="dot-blink">.</span>net</h2>
+            <p>Open the channel. Send a packet.</p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-panel">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--tr"></span>
+              <span class="card-corner card-corner--bl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="status-pill">
+                <span class="status-dot"></span>
+                CHANNEL_STATUS :: <b class="green">OPEN</b>
+              </div>
+              <div class="info-grid">
+                <div class="info-card"><span class="info-label">AVAIL</span><span class="info-value">IMMEDIATE</span></div>
+                <div class="info-card"><span class="info-label">TIMEZONE</span><span class="info-value">WIB / UTC+7</span></div>
+                <div class="info-card"><span class="info-label">SCOPE</span><span class="info-value">FULL_STACK · BACKEND · WEB</span></div>
+              </div>
+              <div class="contact-rows">
+                <button type="button" class="contact-row" data-copy="hansiskandar123@gmail.com">
+                  <span class="contact-row-label">EMAIL</span>
+                  <span class="contact-row-value">hansiskandar123@gmail.com</span>
+                  <span class="contact-row-action">[ COPY ]</span>
+                </button>
+                <button type="button" class="contact-row" data-copy="+62 877 773 005 81">
+                  <span class="contact-row-label">PHONE</span>
+                  <span class="contact-row-value">+62 877 773 005 81</span>
+                  <span class="contact-row-action">[ COPY ]</span>
+                </button>
+                <div class="contact-row static">
+                  <span class="contact-row-label">NODE</span>
+                  <span class="contact-row-value">JAKARTA / INDONESIA</span>
+                </div>
+              </div>
+            </div>
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/mwvnezpo" method="post">
+              <span class="card-corner card-corner--tl"></span>
+              <span class="card-corner card-corner--tr"></span>
+              <span class="card-corner card-corner--bl"></span>
+              <span class="card-corner card-corner--br"></span>
+              <div class="form-grid">
+                <label class="field">
+                  <span>// HANDLE</span>
+                  <input type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label class="field">
+                  <span>// RETURN_ADDR</span>
+                  <input type="email" name="email" placeholder="your@email.com" required />
+                </label>
+              </div>
+              <label class="field">
+                <span>// SUBJECT</span>
+                <input type="text" name="subject" placeholder="Project inquiry, collaboration, etc." />
+              </label>
+              <label class="field">
+                <span>// PAYLOAD</span>
+                <textarea name="message" rows="5" placeholder="Tell me about the contract..."></textarea>
+              </label>
+              <button class="button primary" type="submit">
+                <span class="button-bracket">&gt;</span>
+                <span class="button-label">TRANSMIT</span>
+                <span class="button-arrow">_</span>
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -199,16 +490,20 @@
     <footer class="site-footer reveal">
       <div class="container footer-inner">
         <div>
-          <div class="brand-name">Hans Thatian</div>
-          <p>Backend Engineer</p>
+          <div class="brand-name" data-text="HANS_THATIAN">HANS_THATIAN</div>
+          <p class="muted">// BACKEND.NETRUNNER · JAKARTA / ID</p>
+          <p class="muted footer-fineprint">© <span id="footer-year"></span> &nbsp;//&nbsp; END_OF_TRANSMISSION</p>
         </div>
-        <div class="footer-links">
-          <a href="mailto:hansiskandar123@gmail.com">hansiskandar123@gmail.com</a>
-          <a href="https://github.com/Hann6" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://id.linkedin.com/in/hans-thatian-404bb822b" target="_blank" rel="noreferrer">LinkedIn</a>
+        <div class="footer-prompt">
+          <span class="muted">root@ht:~$</span>
+          <span id="footer-typer"></span>
+          <span class="cursor cursor--solid"></span>
         </div>
       </div>
     </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
     <script src="script.js"></script>
   </body>
 </html>
