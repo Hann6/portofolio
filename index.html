@@ -1,141 +1,327 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Hans Thatian - Backend Engineer based in Jakarta. Building reliable services with pragmatic engineering." />
+    <meta name="theme-color" content="#f6f0e6" />
     <title>Hans Thatian | Backend Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="preload">
+  <body class="preload" data-theme="light">
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
     <header class="site-header">
       <div class="container header-inner">
-        <div class="brand">
-          <div class="brand-mark">HT</div>
-          <div>
-            <div class="brand-name">Hans Thatian</div>
-            <div class="brand-role">Backend Engineer</div>
+        <a class="brand" href="#top" aria-label="Home">
+          <div class="brand-mark">
+            <span>HT</span>
+            <span class="brand-mark-glow" aria-hidden="true"></span>
           </div>
-        </div>
+          <div class="brand-text">
+            <div class="brand-name">Hans Thatian</div>
+            <div class="brand-role">
+              <span class="brand-role-dot" aria-hidden="true"></span>
+              Backend Engineer
+            </div>
+          </div>
+        </a>
+
         <div class="header-actions">
-          <nav class="nav">
+          <nav class="nav" aria-label="Primary">
             <a href="#experience">Experience</a>
+            <a href="#work">Work</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
           </nav>
+
+          <button
+            class="icon-button theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle color theme"
+            title="Toggle theme"
+          >
+            <svg class="icon icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66l1.41-1.41M4.93 19.07l1.41-1.41m0-11.32L4.93 4.93m14.14 14.14l-1.41-1.41M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+            <svg class="icon icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="currentColor"/>
+            </svg>
+          </button>
+
           <div class="time-card" aria-live="polite">
-            <span class="time-label">Jakarta Time</span>
+            <span class="time-label">Jakarta</span>
             <span class="time-value" id="jakarta-time">--:--</span>
             <span class="time-date" id="jakarta-date">--</span>
           </div>
+
+          <button
+            class="icon-button menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
         </div>
       </div>
     </header>
 
-    <main>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav aria-label="Mobile">
+        <a href="#experience">Experience</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <main id="top">
       <section class="hero">
         <div class="container hero-grid">
-          <div class="reveal">
-            <p class="eyebrow">Based in Jakarta, Indonesia</p>
-            <h1>Building reliable backend systems with pragmatic engineering.</h1>
-            <p class="lead">
-              Backend Engineer with almost 2 years of professional experience in government and
-              banking environments. I focus on scalable services, clean API design, and robust fixes
-              that keep systems stable.
+          <div class="hero-text reveal">
+            <p class="eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              Based in Jakarta, Indonesia
             </p>
+            <h1>
+              Building reliable backend systems with
+              <span class="rotator" aria-live="polite">
+                <span class="rotator-word is-active">pragmatic engineering.</span>
+                <span class="rotator-word">clean API design.</span>
+                <span class="rotator-word">durable fixes.</span>
+                <span class="rotator-word">scalable services.</span>
+              </span>
+            </h1>
+            <p class="lead">
+              Backend Engineer with almost 2 years of professional experience in government
+              and banking environments. I focus on services that stay calm under pressure,
+              code that reads well, and fixes that actually stick.
+            </p>
+
             <div class="cta-row">
-              <a class="button ghost" href="https://id.linkedin.com/in/hans-thatian-404bb822b" target="_blank" rel="noreferrer">
+              <a class="button primary" href="#contact">
+                <svg aria-hidden="true" viewBox="0 0 24 24" class="icon">
+                  <path d="M3 5h18v14H3z M3 5l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                </svg>
+                Let's talk
+              </a>
+              <a class="button ghost" href="CV Hans Thatian.pdf" download>
+                <svg aria-hidden="true" viewBox="0 0 24 24" class="icon">
+                  <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download CV
+              </a>
+              <a class="button ghost icon-only" href="https://id.linkedin.com/in/hans-thatian-404bb822b" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <svg aria-hidden="true" viewBox="0 0 24 24" class="icon">
                   <path d="M20.45 20.45h-3.55v-5.32c0-1.27-.02-2.9-1.77-2.9-1.78 0-2.05 1.38-2.05 2.8v5.42H9.53V9h3.4v1.56h.05c.47-.9 1.62-1.85 3.34-1.85 3.57 0 4.22 2.35 4.22 5.41v6.33zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22 3H2c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h20c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1z"/>
                 </svg>
-                LinkedIn
               </a>
-              <a class="button ghost" href="https://github.com/Hann6" target="_blank" rel="noreferrer">
+              <a class="button ghost icon-only" href="https://github.com/Hann6" target="_blank" rel="noreferrer" aria-label="GitHub">
                 <svg aria-hidden="true" viewBox="0 0 24 24" class="icon">
                   <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.36-1.18-3.36-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.9-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.69.92.69 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2z"/>
                 </svg>
-                GitHub
               </a>
-              <a class="button ghost" href="CV Hans Thatian.pdf" download>Download CV</a>
             </div>
-            <div class="contact-row">
-              <span>+62 877 773 005 81</span>
-              <span>Jakarta, ID</span>
-            </div>
-          </div>
-          <div class="hero-card reveal">
-            <div class="hero-card-inner">
-              <h2>Highlights</h2>
-              <ul class="highlight-list">
-                <li>Led a regional selection service for a national legal administration system.</li>
-                <li>Delivered a full-stack Yii app with voucher validation for sensitive requests.</li>
-                <li>Built security testing strategies for JSP applications.</li>
-              </ul>
-              <div class="availability">
-                <span class="dot"></span>
-                Open to backend roles
+
+            <div class="stats-strip" aria-label="Quick stats">
+              <div class="stat">
+                <span class="stat-value" data-counter data-target="2" data-suffix="+">0</span>
+                <span class="stat-label">Years building backends</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" data-counter data-target="10" data-suffix="+">0</span>
+                <span class="stat-label">Technologies in rotation</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" data-counter data-target="3" data-suffix="">0</span>
+                <span class="stat-label">Spoken languages</span>
               </div>
             </div>
           </div>
+
+          <aside class="hero-card reveal">
+            <div class="hero-card-stack">
+              <div class="hero-card-glass">
+                <div class="hero-card-head">
+                  <span class="status-dot status-dot--live" aria-hidden="true"></span>
+                  <span class="hero-card-title">Currently</span>
+                </div>
+                <p class="hero-card-now">
+                  Closed <strong>1,200+ tickets</strong> to date — maintaining production services,
+                  solving recurring bugs, and shipping durable fixes that keep systems calm.
+                </p>
+                <div class="hero-card-tags">
+                  <span class="tag">Maintenance</span>
+                  <span class="tag">Bug-fixing</span>
+                  <span class="tag">Stability</span>
+                </div>
+              </div>
+
+              <div class="hero-card-glass hero-card-secondary">
+                <h3 class="hero-card-title">Highlights</h3>
+                <ul class="highlight-list">
+                  <li>Regional selection service for a national legal admin system.</li>
+                  <li>Full-stack Yii app with voucher validation for sensitive workflows.</li>
+                  <li>Security testing strategies for JSP applications.</li>
+                </ul>
+                <div class="availability">
+                  <span class="dot"></span>
+                  Open to full-stack, backend & web services roles
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
 
       <section id="experience" class="section reveal">
         <div class="container">
           <div class="section-title">
+            <p class="section-kicker">01 — Journey</p>
             <h2>Work Experience</h2>
             <p>Recent roles focused on backend services and security.</p>
           </div>
-          <div class="cards">
-            <article class="card">
-              <div class="card-header">
-                <div>
-                  <h3>Lacak.io</h3>
-                  <p class="role">Backend Engineer</p>
-                </div>
-                <span class="meta">May 2025 - Present</span>
+
+          <ol class="timeline">
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="timeline-dot"></span>
               </div>
-              <ul>
-                <li>Led development of the Koperasi Wilayah Selection Service using PostgreSQL, Java Spring Boot, and Hazelcast Cache.</li>
-                <li>Deployed a full-stack Yii application to handle requests for lost or corrupted testaments with voucher validation.</li>
-                <li>Resolved recurring issues with durable fixes to improve system stability and efficiency.</li>
-              </ul>
+              <article class="card timeline-card">
+                <div class="card-header">
+                  <div>
+                    <h3>Lacak.io</h3>
+                    <p class="role">Backend Engineer</p>
+                  </div>
+                  <span class="meta meta-pill">May 2025 — Present</span>
+                </div>
+                <ul>
+                  <li>Led development of the Koperasi Wilayah Selection Service using PostgreSQL, Java Spring Boot, and Hazelcast Cache.</li>
+                  <li>Deployed a full-stack Yii application to handle requests for lost or corrupted testaments with voucher validation.</li>
+                  <li>Resolved recurring issues with durable fixes to improve system stability and efficiency.</li>
+                </ul>
+                <div class="card-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">Spring Boot</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">Hazelcast</span>
+                  <span class="tag">Yii</span>
+                </div>
+              </article>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="timeline-dot"></span>
+              </div>
+              <article class="card timeline-card">
+                <div class="card-header">
+                  <div>
+                    <h3>Bank Central Asia (BCA)</h3>
+                    <p class="role">Application Developer Intern</p>
+                  </div>
+                  <span class="meta meta-pill">Sep 2024 — May 2025</span>
+                </div>
+                <ul>
+                  <li>Assisted penetration testing development using Java, focusing on vulnerability detection.</li>
+                  <li>Contributed to security testing strategies within a JSP framework.</li>
+                  <li>Implemented new features and maintained systems for KLIKBCA Bisnis.</li>
+                </ul>
+                <div class="card-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">JSP</span>
+                  <span class="tag">Pen-testing</span>
+                  <span class="tag">Security</span>
+                </div>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="work" class="section alt reveal">
+        <div class="container">
+          <div class="section-title">
+            <p class="section-kicker">02 — Featured Work</p>
+            <h2>Selected projects</h2>
+            <p>Things I built or led that shipped to real users.</p>
+          </div>
+          <div class="work-grid">
+            <article class="work-card">
+              <div class="work-glyph" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><path d="M4 22h24M8 22V10l8-5 8 5v12M14 22v-6h4v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+              </div>
+              <h3>Koperasi Wilayah Selection Service</h3>
+              <p class="role">Lacak.io · National legal admin program</p>
+              <p>Regional selection service backing a national legal administration system. Designed for resilience under spiky traffic with cached lookups and clean API contracts.</p>
+              <div class="card-tags">
+                <span class="tag">Spring Boot</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Hazelcast</span>
+              </div>
             </article>
-            <article class="card">
-              <div class="card-header">
-                <div>
-                  <h3>Bank Central Asia (BCA)</h3>
-                  <p class="role">Application Developer Intern</p>
-                </div>
-                <span class="meta">Sep 2024 - May 2025</span>
+
+            <article class="work-card">
+              <div class="work-glyph" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><path d="M7 5h13l5 5v17H7z M20 5v5h5M11 14h10M11 18h10M11 22h7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
               </div>
-              <ul>
-                <li>Assisted penetration testing development using Java, focusing on vulnerability detection.</li>
-                <li>Contributed to security testing strategies within a JSP framework.</li>
-                <li>Implemented new features and maintained systems for KLIKBCA Bisnis.</li>
-              </ul>
+              <h3>Lost & Corrupted Testaments App</h3>
+              <p class="role">Lacak.io · Sensitive document workflow</p>
+              <p>Full-stack Yii application that processes citizen requests for damaged or missing legal testaments, with voucher validation guarding sensitive paths.</p>
+              <div class="card-tags">
+                <span class="tag">Yii</span>
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-glyph" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><path d="M16 4l10 4v8c0 6-4 10-10 12-6-2-10-6-10-12V8z M12 16l3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+              </div>
+              <h3>BCA Pentest Tooling</h3>
+              <p class="role">Bank Central Asia · KLIKBCA Bisnis</p>
+              <p>Assisted in building Java tooling for vulnerability detection in a JSP-based banking platform, plus features and maintenance for KLIKBCA Bisnis.</p>
+              <div class="card-tags">
+                <span class="tag">Java</span>
+                <span class="tag">JSP</span>
+                <span class="tag">Security</span>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="skills" class="section alt reveal">
+      <section id="skills" class="section reveal">
         <div class="container">
           <div class="section-title">
+            <p class="section-kicker">03 — Toolbox</p>
             <h2>Skills</h2>
             <p>Core technologies and strengths.</p>
           </div>
           <div class="skills-grid">
-            <div class="card">
-              <h3>Backend</h3>
+            <div class="card skill-card">
+              <div class="skill-head">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                </span>
+                <h3>Backend</h3>
+              </div>
               <ul class="skill-list">
                 <li>Java</li>
                 <li>Python</li>
@@ -147,8 +333,14 @@
                 <li>Hazelcast</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Frameworks</h3>
+
+            <div class="card skill-card">
+              <div class="skill-head">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z M3 12l9 5 9-5 M3 17l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                </span>
+                <h3>Frameworks</h3>
+              </div>
               <ul class="skill-list">
                 <li>Spring Boot</li>
                 <li>JSP</li>
@@ -156,28 +348,46 @@
                 <li>Laravel</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Frontend</h3>
+
+            <div class="card skill-card">
+              <div class="skill-head">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z M3 9h18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                </span>
+                <h3>Frontend</h3>
+              </div>
               <ul class="skill-list">
-                <li>JavaScript (JS)</li>
+                <li>JavaScript</li>
                 <li>React.js</li>
                 <li>HTML</li>
                 <li>CSS</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Tools</h3>
+
+            <div class="card skill-card">
+              <div class="skill-head">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M14 4l6 6-9 9H5v-6z M13 7l4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg>
+                </span>
+                <h3>Tools</h3>
+              </div>
               <ul class="skill-list">
                 <li>Git & GitHub</li>
                 <li>Postman</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Languages</h3>
+
+            <div class="card skill-card">
+              <div class="skill-head">
+                <span class="skill-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 5l4 4M5 9l4-4M14 5h5v5M14 19h5v-5M5 19l14-14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                </span>
+                <h3>Languages</h3>
+              </div>
               <ul class="skill-list">
-                <li>Bahasa Indonesia</li>
-                <li>English</li>
-                <li>Mandarin (Beginner)</li>
+                <li>Bahasa Indonesia <span class="prof prof-3" aria-label="Native"></span></li>
+                <li>English <span class="prof prof-3" aria-label="Fluent"></span></li>
+                <li>Mandarin <span class="prof prof-1" aria-label="Beginner"></span></li>
               </ul>
             </div>
           </div>
@@ -187,19 +397,20 @@
       <section id="education" class="section alt reveal">
         <div class="container">
           <div class="section-title">
+            <p class="section-kicker">04 — Foundations</p>
             <h2>Education & Certification</h2>
             <p>Academic background and verified language proficiency.</p>
           </div>
-          <div class="cards">
+          <div class="cards two-col">
             <article class="card">
               <div class="card-header">
                 <div>
                   <h3>BINUS University</h3>
                   <p class="role">B.S. in Computer Science</p>
                 </div>
-                <span class="meta">Sep 2021 - Mar 2025</span>
+                <span class="meta meta-pill">Sep 2021 — Mar 2025</span>
               </div>
-              <p>GPA: 3.53 / 4.00</p>
+              <p class="muted">GPA: <strong>3.53 / 4.00</strong></p>
             </article>
             <article class="card">
               <div class="card-header">
@@ -207,9 +418,9 @@
                   <h3>IELTS Academic</h3>
                   <p class="role">Score 7.5</p>
                 </div>
-                <span class="meta">2023</span>
+                <span class="meta meta-pill">2023</span>
               </div>
-              <p>IELTS Official</p>
+              <p class="muted">IELTS Official</p>
             </article>
           </div>
         </div>
@@ -218,8 +429,9 @@
       <section id="contact" class="section reveal">
         <div class="container">
           <div class="section-title">
+            <p class="section-kicker">05 — Say hello</p>
             <h2>Get In Touch</h2>
-            <p>Let’s discuss your next project.</p>
+            <p>Let's discuss your next project.</p>
           </div>
           <div class="contact-grid">
             <div class="contact-panel">
@@ -242,17 +454,19 @@
                 </div>
               </div>
               <div class="contact-details">
-                <div>
+                <button type="button" class="contact-row-item" data-copy="hansiskandar123@gmail.com" title="Click to copy">
                   <span class="detail-label">Email</span>
-                  <a href="mailto:hansiskandar123@gmail.com">hansiskandar123@gmail.com</a>
-                </div>
-                <div>
+                  <span class="detail-value">hansiskandar123@gmail.com</span>
+                  <span class="detail-action">Copy</span>
+                </button>
+                <button type="button" class="contact-row-item" data-copy="+62 877 773 005 81" title="Click to copy">
                   <span class="detail-label">Phone</span>
-                  <span>+62 877 773 005 81</span>
-                </div>
-                <div>
+                  <span class="detail-value">+62 877 773 005 81</span>
+                  <span class="detail-action">Copy</span>
+                </button>
+                <div class="contact-row-item static">
                   <span class="detail-label">Location</span>
-                  <span>Jakarta, Indonesia</span>
+                  <span class="detail-value">Jakarta, Indonesia</span>
                 </div>
               </div>
             </div>
@@ -275,7 +489,12 @@
                 <span>Message</span>
                 <textarea name="message" rows="5" placeholder="Tell me about your project, timeline, budget, or any questions you have..."></textarea>
               </label>
-              <button class="button" type="submit">Send Message</button>
+              <button class="button primary" type="submit">
+                <span class="button-label">Send Message</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24" class="icon">
+                  <path d="M5 12h14m0 0l-5-5m5 5l-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </form>
           </div>
         </div>
@@ -286,7 +505,8 @@
       <div class="container footer-inner">
         <div>
           <div class="brand-name">Hans Thatian</div>
-          <p>Backend Engineer</p>
+          <p class="muted">Backend Engineer · Jakarta, ID</p>
+          <p class="muted footer-fineprint">&copy; <span id="footer-year"></span> Built with care.</p>
         </div>
         <div class="footer-links">
           <a href="mailto:hansiskandar123@gmail.com">hansiskandar123@gmail.com</a>
@@ -305,6 +525,11 @@
         </div>
       </div>
     </footer>
+
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
     <script src="script.js"></script>
   </body>
 </html>
